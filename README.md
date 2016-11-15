@@ -2,7 +2,7 @@
 Make ZFS on Linux for Ubuntu Live USB Ubiquity Installer
 ```
 NAME
-    mkzfsonlinux.sh v$VERSION - Make ZFS on Linux for Ubuntu / Ubuntu MATE 16.04 / 16.10 Bootable USB Installer
+    mkzfsonlinux.sh - Make ZFS on Linux for Ubuntu / Ubuntu MATE 16.04 / 16.10 Bootable USB Installer
 
 SYNOPSIS
     mkzfsonlinux.sh [-h] [-u] -z <mirror|raidz|raidz2|zraid3> -d <disk0> [...-d <diskn>]

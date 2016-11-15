@@ -1,17 +1,15 @@
 # mkzfsonlinux
-Make ZFS on Linux for Ubuntu Live USB Ubiquity Installer
-
+Make ZFS on Linux for Ubuntu Live USB Ubiquity Installer<br><br>
 To build a new system with ZFS on Linux, boot system with Ubuntu MATE 16.04.1 Live USB into Live environment,
 open a terminal window (CTRL-ALT-T), and type: <br><br>
-`wget https://github.com/XLTech-Asia/mkzfsonlinux/raw/master/mkzfsonlinux.sh`<br>
-Then make the script executable: <br><br>
-`chmod +x mkzfsonlinux.sh`<br>
+`wget https://github.com/XLTech-Asia/mkzfsonlinux/raw/master/mkzfsonlinux.sh`<br><br>
+Then make the script executable:<br><br>
+`chmod +x mkzfsonlinux.sh`<br><br>
 To see the devices by-id on the system, use: <br><br>
-`ls -la /dev/disk/by-id`<br>
+`ls -la /dev/disk/by-id`<br><br>
 An example build and install with mirrored drives would be: <br><br>
-`sudo ./mkzfsonlinux.sh -z mirror -d ata-TOSHIBA-TR150_46BB43SJK8WU -d ata-Samsung_SSD_850_EVO_M.2_250GB_S24BNX0H800868M  --install --yes`
-<br>
-Before Ubiquity Installer starts, some instructions will be displayed - do not close the terminal, follow the instructions, and the script will continue once you are finished with the install - be sure to click 'Continue Testing'.
+`sudo ./mkzfsonlinux.sh -z mirror -d ata-TOSHIBA-TR150_46BB43SJK8WU -d ata-Samsung_SSD_850_EVO_M.2_250GB_S24BNX0H800868M  --install --yes`<br><br>
+Before Ubiquity Installer starts, some instructions will be displayed - do not close the terminal, follow the instructions, and the script will continue once you are finished with the install - be sure to click 'Continue Testing'.<br>
 
 ```
 NAME

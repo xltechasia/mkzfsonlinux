@@ -1,5 +1,20 @@
 # mkzfsonlinux
 Make ZFS on Linux for Ubuntu Live USB Ubiquity Installer
+
+To build a new system with ZFS on Linux, boot system with Ubuntu MATE 16.04.1 Live USB into Live environment,
+open a terminal window (CTRL-ALT-T), and type;
+    <br>`wget https://github.com/XLTech-Asia/mkzfsonlinux/raw/master/mkzfsonlinux.sh`<br>
+Then make the script executable;
+    <br>`chmod +x mkzfsonlinux.sh`<br>
+To see the devices by-id on the system, use;
+    <br>`ls -la /dev/disk/by-id`<br>
+An example build and install with mirrored drives would be;
+    <br>`sudo ./mkzfsonlinux.sh -z mirror \`<br>
+    <br>`                       -d ata-TOSHIBA-TR150_46BB43SJK8WU \`<br>
+    <br>`                       -d ata-Samsung_SSD_850_EVO_M.2_250GB_S24BNX0H800868M \`<br>
+    <br>`                       --install --yes`<br>
+Before Ubiquity Installer starts, some instructions will be displayed - do not close the terminal, follow the instructions, and the script will continue once you are finished with the install - be sire to click 'Continue Testing'.
+
 ```
 NAME
     mkzfsonlinux.sh - Make ZFS on Linux for Ubuntu / Ubuntu MATE 16.04 / 16.10 Bootable USB Installer

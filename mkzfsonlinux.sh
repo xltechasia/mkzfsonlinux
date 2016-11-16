@@ -506,7 +506,7 @@ if [ $ZFSDISKCOUNT -lt $ZFSMINDISK ]; then
 fi
 
 if [ $DRYRUN -eq $TRUE ]; then
-    printf "\n >>> Dry Run Mode Selected - Execution Flag Overide In Effect\n"
+    printf "\n >>> Dry Run Mode Selected - Execution Flag Override In Effect\n"
     CANEXECUTE=$FALSE
 fi
 
@@ -536,6 +536,9 @@ elif [ $CPWRKENV -eq $TRUE ]; then
 fi
 
 unmount_zfs
+
+printf "/n/nInstallation Finished.\n"
+printf "You can now proceed to reboot the system to test the new Ubuntu ZFS on Linux installation.\n\n"
 
 exit 0
 

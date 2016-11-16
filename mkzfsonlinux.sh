@@ -93,7 +93,7 @@ AUTHOR
     Matthew@XLTech.io
 
 REPORTING BUGS
-    https://github.com/XLTech-Asia/mkzfsonlinux/issues
+    https://github.com/xltechasia/xltech/issues
 
 COPYRIGHT
     Copyright © 2016 XLTech  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.

@@ -5,9 +5,11 @@
 # TODO: --bootstrap option(s) to install minimal bootable environment as alternative to --cp or --install opts
 # TODO: --uefi untested/unfinished
 # TODO: --cp untested/unfinished..
+# TODO: --swap to support creation of a swap volume on pool
+# TODO: seperate core vs optional sets (rpool/home vs rpool/srv)
 
 # Constants
-readonly VERSION="0.1 Alpha"
+readonly VERSION="0.2 Alpha"
 readonly TRUE=0
 readonly FALSE=1
 
@@ -114,7 +116,7 @@ install_deps() {
 
 unmount_zfs() {
     # Unmount filesystems
-    printf "/nUnmounting All attached to %s & %s..." "$ZFSMNTPOINT" "$UBIQUITYMNTPOINT"
+    printf "\nUnmounting All attached to %s & %s..." "$ZFSMNTPOINT" "$UBIQUITYMNTPOINT"
 
     # TODO: Change to ZFSMNTPOINT
     mount | grep -v zfs | tac | awk '/\/mnt/ {print $3}' | xargs -i{} umount -lf {}
@@ -537,7 +539,7 @@ fi
 
 unmount_zfs
 
-printf "/n/nInstallation Finished.\n"
+printf "\n\nInstallation Finished.\n"
 printf "You can now proceed to reboot the system to test the new Ubuntu ZFS on Linux installation.\n\n"
 
 exit 0

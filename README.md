@@ -1,16 +1,19 @@
 # mkzfsonlinux
 Make ZFS on Linux for Ubuntu Live USB Ubiquity Installer<br><br>
-To build a new system with ZFS on Linux, boot system with Ubuntu MATE 16.04.1 Live USB into Live environment,
-open a terminal window (CTRL-ALT-T), and type: <br><br>
-`wget https://github.com/XLTech-Asia/mkzfsonlinux/raw/master/mkzfsonlinux.sh`<br><br>
+To build a new system with ZFS on Linux for root, boot the system with Ubuntu MATE 16.04.1 Live USB into desktop environment ("Try Ubuntu"), once at the desktop, start a terminal window (CTRL-ALT-T), and type: <br><br>
+`wget https://github.com/xltechasia/mkzfsonlinux/raw/master/mkzfsonlinux.sh`<br><br>
 Then make the script executable:<br><br>
 `chmod +x mkzfsonlinux.sh`<br><br>
 To see the devices by-id on the system, use: <br><br>
 `ls -la /dev/disk/by-id`<br><br>
 An example build and install with mirrored drives would be: <br><br>
-`sudo ./mkzfsonlinux.sh -z mirror -d ata-TOSHIBA-TR150_46BB43SJK8WU -d ata-Samsung_SSD_850_EVO_M.2_250GB_S24BNX0H800868M  --install --yes`<br><br>
-Before Ubiquity Installer starts, some instructions will be displayed - do not close the terminal, follow the instructions, and the script will continue once you are finished with the install - be sure to click 'Continue Testing'.<br>
-
+`sudo ./mkzfsonlinux.sh -z mirror -d ata-TOSHIBA-TR150_12AB12SJK1WU -d ata-Samsung_SSD_850_EVO_M.2_250GB_S12BNX0H123456M  --install --yes`<br><br>
+The script will parse the arguments passed, and if '--yes' and '--install' are included, will proceed to **delete all data on the passed disks**.<br><br>
+Before Ubiquity Installer starts, some instructions will be displayed - **do not close the terminal**, follow the instructions, and the script will continue once you are finished with the install - be sure to click **Continue Testing**.<br><br>
+The order disks are provided on the cli is not important. The script will updated/install GRUB (with ZFS support) on each of the listed drives. This enables booting from any of the provided drives successfully.<br><br>
+The script is based on the instructions from [ZFS on Linux Wiki "Ubuntu 16.04 Root on ZFS"](https://github.com/zfsonlinux/zfs/wiki/Ubuntu%2016.04%20Root%20on%20ZFS)<br><br>
+The installation should work for any Ubuntu variant based on 16.04 or later, that uses the Ubiquity installer and is available as a Live USB - this has not been tested.<br><br>
+** NOTE: Any CLI Options in the script not listed below are untested, incomplete or known to have issues**<br><br>
 ```
 NAME
     mkzfsonlinux.sh - Make ZFS on Linux for Ubuntu / Ubuntu MATE 16.04 / 16.10 Bootable USB Installer
@@ -22,10 +25,10 @@ SYNOPSIS
 DESCRIPTION
     mkzfsonlinux is based on https://github.com/zfsonlinux/zfs/wiki/Ubuntu%2016.04%20Root%20on%20ZFS
 
-    *** WILL DESTROY DATA - Use at own risk - Only tested in limited scenarios with Ubuntu MATE 16.04.1
+    *** WILL DESTROY DATA - Use at own risk - Only tested in limited scenarios with Ubuntu MATE 16.04.1 Live USB
 
-    Builds a ZFS pool on supplied disks, run Ubiquity Installer,
-    create a minimal bootable environment or copying an existing working install
+    Builds a ZFS pool on supplied disks, runs the Ubiquity Installer, then
+    copies the installation from the temporary volume (/dev/zd0) to the ZFS pool.
 
 OPTIONS
     -h|--help   -   Display this help & exit
@@ -42,17 +45,11 @@ OPTIONS
     -d <disk0>  -   Valid drives in /dev/disks/by-id/ to use for ZFS pool
         ...             eg. ata-Samsung_SSD_850_EVO_M.2_250GB_S24BNX0H812345M
     -d <diskn>          or  ata-ST4000DM000-2AE123_ZDH123AA
-                    *** All drives passed will be reformatted - ALL partitions & data will be destroyed
-    --cp <path> -   Source of working system to copy to new ZFS pool (rsync -avxHAX <path> /mnt) after pool creation
+                    ** All drives passed will be reformatted - ALL partitions & data will be destroyed **
     --install   -   Create /dev/zd0 and launch Ubiquity installer after pool creation
-    --uefi      -   Add partition and GRUB support for UEFI boot
     --yes       -   Required to execute repartitioning & ZFS pool build
-    --dry       -   Semi-safe execution - will do as much as possible that is non-destructive. Overrides --yes
-    --continue  -   Skip all steps (partitioning etc) and go straight to --install or --cp processing
 
-If --yes or --dry are missing, after parsing options, will terminate without deleting anything
-If --cp <path> and --install are mutually exclusive, passing both will cause an error
-If --continue is used, the ZFS Pool, Disks and/or previously used paramaters must be exactly the same (no checking done)
+If --yes is missing, after parsing options, will terminate without deleting anything
 
 AUTHOR
     Matthew@XLTech.io

@@ -66,11 +66,11 @@ OPTIONS
     -h|--help   -   Display this help & exit
     -u          -   unmount all ZFS partitions under $ZFSMNTPOINT & exit
     -z <opt>    -   ZFS RAID level to build pool
-                        mirror  similiar to RAID1 - minimum of 2 drives required
+                        mirror  similar to RAID1 - minimum of 2 drives required
                                 (>2 results in all drives being a mirror of smallest drive size, ie. 4 drives <> RAID10)
-                        raidz   similiar to RAID5 - n + 1 drives - minimum of 2 drives, >=3 recommended
+                        raidz   similar to RAID5 - n + 1 drives - minimum of 2 drives, >=3 recommended
                                 maximum 1 drive failure for functioning pool
-                        raidz2  similiar to RAID6 - n + 2 drives - minimum of 3 drives, >=4 recommended
+                        raidz2  similar to RAID6 - n + 2 drives - minimum of 3 drives, >=4 recommended
                                 maximum 2 drive failures for functioning pool
                         raidz3  n + 3 drives - minimum of 4 drives, >=5 recommended
                                 maximum 3 drive failures for functioning pool
@@ -93,7 +93,7 @@ AUTHOR
     Matthew@XLTech.io
 
 REPORTING BUGS
-    https://github.com/XLTech-Asia/mkzfsonlinux/issues
+    https://github.com/xltechasia/xltech/issues
 
 COPYRIGHT
     Copyright © 2016 XLTech  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
@@ -353,7 +353,7 @@ EOF
         exit
 EOF
     done
-    printf "\nFinished choot process\n"
+    printf "\nFinished cheoot process\n"
 
     printf "Cleaning up and Creating a snapshot before finishing up..."
 

@@ -22,7 +22,7 @@ readonly UBIQUITYDEVICE="/dev/zd0"
 readonly UBIQUITYPART="/dev/zd0p1"
 readonly UBIQUITYMNTPOINT="/ubuntu-install"
 
-readonly ZFSPOOL="rpool"
+readonly ZFSPOOL="tank"
 readonly ZFSMNTPOINT="/mnt"
 # end / Constants
 
@@ -353,7 +353,7 @@ EOF
         exit
 EOF
     done
-    printf "\nFinished cheoot process\n"
+    printf "\nFinished chroot process\n"
 
     printf "Cleaning up and Creating a snapshot before finishing up..."
 

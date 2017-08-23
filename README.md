@@ -12,7 +12,8 @@ The script will parse the arguments passed, and if '--yes' and '--install' are i
 Before Ubiquity Installer starts, some instructions will be displayed - **do not close the terminal**, follow the instructions, and the script will continue once you are finished with the install - be sure to click **Continue Testing**.<br><br>
 The order disks are provided on the cli is not important. The script will updated/install GRUB (with ZFS support) on each of the listed drives. This enables booting from any of the provided drives successfully.<br><br>
 The script is based on the instructions from [ZFS on Linux Wiki "Ubuntu 16.04 Root on ZFS"](https://github.com/zfsonlinux/zfs/wiki/Ubuntu%2016.04%20Root%20on%20ZFS)<br><br>
-The installation should work for any Ubuntu variant based on 16.04 or later, that uses the Ubiquity installer and is available as a Live USB - this has not been tested.<br><br>
+The installation should work for any Ubuntu variant based on 16.04 or 16.10, that uses the Ubiquity installer and is available as a Live USB - Package names changed in 17.04, and the next planned update is 18.04 LTS.<br><br>
+**All testing and development was done on and for Ubuntu MATE 16.04.x LTS**<br><br>
 ** NOTE: Any CLI Options in the script not listed below are untested, incomplete or known to have issues**<br><br>
 ```
 NAME
